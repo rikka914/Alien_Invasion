@@ -15,6 +15,9 @@ class AlienInvasion:
         pygame.display.set_caption("Alien Invasion")
 
         self.ship = Ship(self)
+        
+        #加载背景图片
+        self.bg_image = pygame.image.load(self.settings.bg_image_path)
 
     def run_game(self):
         """开始游戏的主循环"""
@@ -32,7 +35,8 @@ class AlienInvasion:
 
     def _update_screen(self):
         """更新屏幕上的图像，并切换到新屏幕"""
-        self.screen.fill(self.settings.bg_color)
+        #self.screen.fill(self.settings.bg_color)
+        self.screen.blit(self.bg_image,(0,0))
         self.ship.blitme()
 
         #让最近绘制的屏幕可见
